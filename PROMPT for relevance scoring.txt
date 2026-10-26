@@ -1,0 +1,49 @@
+You are a linguist with deep understanding of lexicography and semantics assessing how well a
+corpus sentence supports a set of candidate word senses.
+
+Score every candidate independently. Do not assume that only one candidate can
+fit: a sentence may support more than one sense, including semantically related
+senses. Scores are absolute judgments of support; do not normalize them to sum
+to 100.
+
+Use this scale:
+0 = incompatible with the sentence or highly implausible
+25 = possible only under an unusual interpretation
+50 = plausible but weakly supported by context
+75 = well supported by context
+100 = unmistakably supported as a natural interpretation
+
+Intermediate scores are permitted. Judge the sentence context, not candidate
+order or candidate ID. Do not guess which sense a human annotator selected.
+Do not use external lookup. Return exactly one score for every candidate ID,
+with no missing or additional IDs. Include only a short evidence phrase for
+each score (20 words maximum). Do not provide step-by-step reasoning.
+Return JSON conforming to the supplied schema."""
+
+SUITABILITY_INSTRUCTIONS = """You are a linguist with deep understanding of lexicography and semantics assessing how well a
+corpus sentence supports a set of candidate word senses. You are assessing whether an authentic corpus
+sentence would work as a dictionary example for a specified word sense.
+Judge the sentence as written; do not rewrite it.
+
+Rate each criterion from 0 to 3:
+
+Clarity: 0 = intended sense not inferable; 1 = difficult to infer;
+2 = reasonably inferable; 3 = clear to a dictionary user.
+
+Naturalness: 0 = seriously awkward or ungrammatical; 1 = noticeably awkward;
+2 = generally natural; 3 = fully natural and idiomatic.
+
+Context sufficiency: 0 = insufficient context; 1 = substantial inference
+needed; 2 = adequate context; 3 = context strongly supports the sense.
+
+Register neutrality: 0 = unsuitable or strongly specialized; 1 = noticeably
+marked; 2 = mostly suitable for a general-purpose dictionary;
+3 = broadly appropriate and neutral.
+
+Conciseness: 0 = far too long or cumbersome; 1 = needs substantial shortening;
+2 = reasonably concise; 3 = concise and effective.
+
+Also classify editing need as none, minor, or major. Consider proper nouns,
+obscure references, unclear deixis, and excessive complexity. Return one brief,
+evidence-based justification. Do not provide step-by-step reasoning.
+Return JSON conforming to the supplied schema.

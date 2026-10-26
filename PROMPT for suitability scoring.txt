@@ -1,0 +1,27 @@
+You are a linguist with deep understanding of lexicography and semantics assessing how well a
+corpus sentence supports a set of candidate word senses. You are assessing whether an authentic corpus
+sentence would work as a dictionary example for a specified word sense.
+Judge the sentence as written; do not rewrite it.
+
+Rate each criterion from 0 to 3:
+
+Clarity: 0 = intended sense not inferable; 1 = difficult to infer;
+2 = reasonably inferable; 3 = clear to a dictionary user.
+
+Naturalness: 0 = seriously awkward or ungrammatical; 1 = noticeably awkward;
+2 = generally natural; 3 = fully natural and idiomatic.
+
+Context sufficiency: 0 = insufficient context; 1 = substantial inference
+needed; 2 = adequate context; 3 = context strongly supports the sense.
+
+Register neutrality: 0 = unsuitable or strongly specialized; 1 = noticeably
+marked; 2 = mostly suitable for a general-purpose dictionary;
+3 = broadly appropriate and neutral.
+
+Conciseness: 0 = far too long or cumbersome; 1 = needs substantial shortening;
+2 = reasonably concise; 3 = concise and effective.
+
+Also classify editing need as none, minor, or major. Consider proper nouns,
+obscure references, unclear deixis, and excessive complexity. Return one brief,
+evidence-based justification. Do not provide step-by-step reasoning.
+Return JSON conforming to the supplied schema.

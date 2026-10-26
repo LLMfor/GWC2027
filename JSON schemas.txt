@@ -1,0 +1,39 @@
+RELEVANCE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "scores": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "candidate_id": {"type": "string"},
+                    "relevance": {"type": "integer", "minimum": 0, "maximum": 100},
+                    "evidence": {"type": "string"},
+                },
+                "required": ["candidate_id", "relevance", "evidence"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["scores"],
+    "additionalProperties": False,
+}
+
+SUITABILITY_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "clarity": {"type": "integer", "minimum": 0, "maximum": 3},
+        "naturalness": {"type": "integer", "minimum": 0, "maximum": 3},
+        "context_sufficiency": {"type": "integer", "minimum": 0, "maximum": 3},
+        "register_neutrality": {"type": "integer", "minimum": 0, "maximum": 3},
+        "conciseness": {"type": "integer", "minimum": 0, "maximum": 3},
+        "editing_need": {"type": "string", "enum": ["none", "minor", "major"]},
+        "brief_justification": {"type": "string"},
+    },
+    "required": [
+        "clarity", "naturalness", "context_sufficiency",
+        "register_neutrality", "conciseness", "editing_need",
+        "brief_justification",
+    ],
+    "additionalProperties": False,
+}
